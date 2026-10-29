@@ -1,2 +1,4 @@
 # Global-Trade-Data-Analysis
-This README covers the project objectives, tools, dataset limitations, execution instructions, and future improvements.
+![Global Trade Analytics Dashboard](trade_dashboard.png)
+
+*Trade analytics dashboard using synthetic sample data for demonstration purposes.*
