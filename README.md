@@ -149,6 +149,7 @@ Global-Trade-Data-Analysis/
 ├── tariff_scenario_matches.csv
 ├── tariff_program_summary.csv
 ├── tariff_country_exposure.csv
+├── compliance_risk_report.csv
 └── tariff_category_exposure.csv
 ```
 
