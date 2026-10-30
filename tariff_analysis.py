@@ -96,11 +96,81 @@ applicable["origin_review_flag"] = (
     "Verify documented country of origin"
 )
 
-# Save an entry-level compliance review report.
-applicable.to_csv(
-    OUT / "compliance_risk_report.csv",
-    index=False
+
+# Build a complete screening report covering every import entry.
+# Keep only the entry-level columns needed from matched scenarios.
+matched = applicable[
+    [
+        "entry_id",
+        "program",
+        "modeled_additional_duty_usd",
+        "risk_priority",
+        "hts_review_flag",
+        "trade_remedy_review_flag",
+        "origin_review_flag",
+    ]
+].copy()
+
+# Aggregate matches to one row per entry, allowing for
+# multiple hypothetical tariff rules to match an entry.
+matched_summary = matched.groupby("entry_id", as_index=False).agg(
+    matched_programs=("program", lambda x: ", ".join(sorted(set(x)))),
+    modeled_additional_duty_usd=("modeled_additional_duty_usd", "sum"),
+    matched_rule_count=("program", "size"),
 )
+
+# Join screening results back to all original transactions.
+compliance_report = entries.merge(
+    matched_summary,
+    on="entry_id",
+    how="left",
+    validate="one_to_one",
+)
+
+compliance_report["screening_status"] = (
+    compliance_report["matched_rule_count"]
+    .notna()
+    .map({True: "Scenario Match", False: "No Scenario Match"})
+)
+
+compliance_report["modeled_additional_duty_usd"] = (
+    compliance_report["modeled_additional_duty_usd"].fillna(0)
+)
+
+compliance_report["matched_rule_count"] = (
+    compliance_report["matched_rule_count"].fillna(0).astype(int)
+)
+
+compliance_report["risk_priority"] = (
+    compliance_report["modeled_additional_duty_usd"]
+    .apply(assign_risk_priority)
+)
+
+compliance_report.loc[
+    compliance_report["screening_status"] == "No Scenario Match",
+    "risk_priority",
+] = "Not Assessed"
+
+compliance_report["hts_review_flag"] = (
+    "Verify HTS classification and Chapter 99 applicability"
+)
+compliance_report["origin_review_flag"] = (
+    "Verify documented country of origin"
+)
+compliance_report["trade_remedy_review_flag"] = (
+    "Verify applicable remedies, scope, dates, and exclusions"
+)
+
+compliance_report.to_csv(
+    OUT / "compliance_risk_report.csv",
+    index=False,
+)
+
+print("\nComplete Compliance Screening Summary")
+print(compliance_report["screening_status"].value_counts())
+print("\nReview Priority Summary")
+print(compliance_report["risk_priority"].value_counts())
+
 
 print("\nCompliance Risk Screening Summary")
 print(applicable["risk_priority"].value_counts())
@@ -370,3 +440,46 @@ plt.close(fig)
 
 print("\nExecutive tariff dashboard generated successfully.")
 print("Saved to outputs/tariff_intelligence_dashboard.png")
+
+# --------------------------------------------------
+# TARIFF MITIGATION | LANDED COST SCENARIO MODEL
+# Hypothetical assumptions, not verified duty savings
+# --------------------------------------------------
+
+def calculate_landed_cost(
+    product_value,
+    additional_duty_rate,
+    freight_cost
+):
+    """Calculate simplified modeled landed cost."""
+    additional_duty = product_value * additional_duty_rate
+
+    landed_cost = (
+        product_value
+        + additional_duty
+        + freight_cost
+    )
+
+    return landed_cost
+
+
+# Illustrative sourcing comparison
+current_cost = calculate_landed_cost(
+    product_value=100000,
+    additional_duty_rate=0.25,
+    freight_cost=5000
+)
+
+alternative_cost = calculate_landed_cost(
+    product_value=108000,
+    additional_duty_rate=0.00,
+    freight_cost=6000
+)
+
+potential_difference = current_cost - alternative_cost
+
+print("\nTARIFF MITIGATION | ILLUSTRATIVE SOURCING SCENARIO")
+print(f"Current modeled landed cost: ${current_cost:,.2f}")
+print(f"Alternative modeled landed cost: ${alternative_cost:,.2f}")
+print(f"Potential cost difference: ${potential_difference:,.2f}")
+print("Scenario only; actual tariff treatment and sourcing feasibility require verification.")
