@@ -202,22 +202,32 @@ The original historical trade analysis is preserved in `analysis.py` and `dashbo
 
 ## 9. Limitations and Future Enhancements
 
-This project is a demonstration of analytical methodology, not a production trade compliance system.
+## Limitations and Future Enhancements
 
-Current limitations include:
+This portfolio project uses synthetic import transactions and illustrative tariff assumptions to demonstrate Python-based trade compliance analytics. The modeled Section 201, Section 232, and Section 301 rates do not represent verified historical or current tariff treatment.
 
-- Synthetic transactions and fictional suppliers.
-- Hypothetical tariff rates and simplified applicability assumptions.
-- Product-category screening instead of legally validated HTS-level determinations.
-- No automated verification of exclusions or Chapter 99 provisions.
-- No comprehensive duty-stacking, quota, or special program logic.
-- No verified tariff mitigation savings.
+The analysis uses simplified product-category, country-of-origin, and effective-date matching. Actual U.S. customs determinations require review of the applicable HTS classification, Chapter 99 provisions, product-specific scope, origin rules, exclusions, duty stacking, and effective dates.
 
-Potential future enhancements include:
+**Planned enhancements include:**
 
-- HTS- and Chapter 99-level rule mapping.
-- Effective-dated regulatory change tracking.
-- Detailed country-of-origin and supplier risk scoring.
-- Duty drawback and Foreign-Trade Zone eligibility screening.
-- Illustrative mitigation scenario comparisons.
-- Automated
+- **Compliance risk screening:** Flag transactions requiring additional HTS, origin, and trade remedy review.
+- **Tariff mitigation scenarios:** Evaluate hypothetical sourcing alternatives and identify potential duty drawback or Foreign-Trade Zone considerations for further eligibility review.
+- **Enhanced executive reporting:** Add risk prioritization, mitigation opportunities, and scenario comparisons.
+
+Any potential mitigation benefits will be presented as hypothetical opportunities, not guaranteed duty savings.
+
+## Professional Application
+
+This project demonstrates skills relevant to international trade compliance, global sourcing, procurement analytics, and supply chain risk management.
+
+It combines Python data processing with trade remedy awareness to translate complex import information into actionable business intelligence.
+
+## Official Reference Resources
+
+- [U.S. International Trade Commission: Harmonized Tariff Schedule](https://hts.usitc.gov/)
+- [U.S. Customs and Border Protection: Trade Remedies](https://www.cbp.gov/trade/remedies)
+- [Office of the United States Trade Representative](https://ustr.gov/)
+
+---
+
+*Portfolio demonstration only. All transaction data is synthetic, and tariff assumptions are illustrative. This project does not provide customs classification, legal advice, or verified duty calculations.*
