@@ -14,3 +14,11 @@ The project combines two analytical perspectives:
 - **Global Trade Trends (2022–2024):** Import/export patterns, trade balances, and country-level comparisons.
 
 **Core skills demonstrated:** Python • pandas • Data Validation • Trade Remedy Screening • Financial Modeling • Executive Reporting
+
+## Tariff & Compliance Intelligence Dashboard | 2025–2026
+
+![Tariff & Compliance Intelligence Dashboard](./tariff_intelligence_dashboard.png)
+
+**Executive snapshot:** 150 synthetic import transactions analyzed, 93 illustrative tariff scenario matches, and approximately $2.70 million in modeled additional duty exposure.
+
+*All figures are hypothetical portfolio outputs, not verified customs liabilities.*
