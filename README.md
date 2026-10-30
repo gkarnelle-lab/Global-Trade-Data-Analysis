@@ -113,4 +113,95 @@ The example demonstrates how changes in sourcing assumptions can affect modeled 
 
 ### Regulatory Limitations
 
-Actual U.S. tariff applicability requires product
+Actual U.S. tariff applicability requires product-specific review of HTS classifications, Chapter 99 provisions, country-of-origin rules, exclusions, effective dates, duty interactions, and other applicable requirements.
+
+The scenario model is not a legally validated tariff determination engine.
+
+---
+
+## 4. Technology Stack
+
+| Technology | Application |
+|---|---|
+| Python | Automated analysis and financial modeling |
+| pandas | Data validation, matching, aggregation, and screening |
+| Matplotlib | Executive dashboard visualization |
+| CSV | Synthetic transaction data, tariff assumptions, and reports |
+| GitHub | Version control and portfolio presentation |
+
+---
+
+## 5. Repository Structure
+
+```text
+Global-Trade-Data-Analysis/
+├── README.md
+├── requirements.txt
+├── analysis.py
+├── dashboard.py
+├── trade_data.csv
+├── trade_dashboard.png
+├── generate_import_data.py
+├── import_entries.csv
+├── tariff_rules.csv
+├── tariff_analysis.py
+├── tariff_intelligence_dashboard.png
+├── tariff_scenario_matches.csv
+├── tariff_program_summary.csv
+├── tariff_country_exposure.csv
+└── tariff_category_exposure.csv
+```
+
+The compliance screening enhancement also generates `compliance_risk_report.csv`. This report will be added to the published repository during the final file synchronization.
+
+---
+
+## 6. How to Run the Project
+
+Install the required Python dependencies:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+Generate the reproducible synthetic import transactions:
+
+```bash
+python3 generate_import_data.py
+```
+
+Run the tariff scenario analysis:
+
+```bash
+python3 tariff_analysis.py
+```
+
+The script generates analytical reports and the tariff intelligence dashboard in the local `outputs/` folder.
+
+The original historical trade analysis is maintained in `analysis.py` and `dashboard.py`.
+
+---
+
+## 7. Professional Application
+
+This project demonstrates capabilities relevant to:
+
+- International trade compliance and customs analytics.
+- Tariff exposure assessment and trade remedy screening.
+- Procurement and strategic sourcing analysis.
+- Financial risk prioritization.
+- Executive reporting and business intelligence.
+
+**Executive takeaway:** Python-based screening and financial analysis can help trade compliance teams organize review priorities, communicate potential exposure, and support more informed business decisions.
+
+---
+
+## 8. Official Reference Resources
+
+- [U.S. International Trade Commission: Harmonized Tariff Schedule](https://hts.usitc.gov/)
+- [U.S. Customs and Border Protection: Trade Remedies](https://www.cbp.gov/trade/remedies)
+- [Office of the United States Trade Representative](https://ustr.gov/)
+
+---
+
+*Portfolio demonstration only. All transaction data is synthetic, and tariff assumptions are illustrative. This project does not provide customs classification, legal advice, or verified duty calculations.*
