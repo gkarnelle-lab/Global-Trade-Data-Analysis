@@ -55,7 +55,7 @@ The analysis demonstrates:
 - Country-level and trade remedy exposure reporting.
 - Executive compliance priorities.
 
-![Tariff & Compliance Intelligence Dashboard](./outputs/tariff_intelligence_dashboard.png)
+![Tariff & Compliance Intelligence Dashboard](./tariff_intelligence_dashboard.png)
 
 **Important:** Scenario matches are screening results, not legally verified determinations of tariff applicability.
 
