@@ -149,11 +149,10 @@ Global-Trade-Data-Analysis/
 ├── tariff_scenario_matches.csv
 ├── tariff_program_summary.csv
 ├── tariff_country_exposure.csv
-├── compliance_risk_report.csv
-└── tariff_category_exposure.csv
-```
+├── tariff_category_exposure.csv
+└── compliance_risk_report.csv
 
-The compliance screening enhancement also generates `compliance_risk_report.csv`. This report will be added to the published repository during the final file synchronization.
+```
 
 ---
 
