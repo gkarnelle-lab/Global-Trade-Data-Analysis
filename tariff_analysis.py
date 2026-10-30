@@ -67,6 +67,44 @@ applicable["modeled_additional_duty_usd"] = (
     * applicable["illustrative_additional_rate"]
 )
 
+# --------------------------------------------------
+# COMPLIANCE RISK SCREENING
+# Illustrative review priorities, not legal findings
+# --------------------------------------------------
+
+def assign_risk_priority(modeled_duty):
+    """Prioritize matched entries by modeled duty exposure."""
+    if modeled_duty >= 25000:
+        return "High"
+    elif modeled_duty >= 10000:
+        return "Medium"
+    else:
+        return "Low"
+
+
+applicable["risk_priority"] = applicable[
+    "modeled_additional_duty_usd"
+].apply(assign_risk_priority)
+
+applicable["hts_review_flag"] = "Review HTS and Chapter 99 applicability"
+
+applicable["trade_remedy_review_flag"] = (
+    "Verify program scope, rates, dates, and exclusions"
+)
+
+applicable["origin_review_flag"] = (
+    "Verify documented country of origin"
+)
+
+# Save an entry-level compliance review report.
+applicable.to_csv(
+    OUT / "compliance_risk_report.csv",
+    index=False
+)
+
+print("\nCompliance Risk Screening Summary")
+print(applicable["risk_priority"].value_counts())
+
 # Save entry-level tariff scenario matches.
 applicable.to_csv(
     OUT / "tariff_scenario_matches.csv",
