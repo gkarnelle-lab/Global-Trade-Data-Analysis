@@ -151,29 +151,22 @@ These are illustrative recommendations rather than findings of actual noncomplia
 
 ## 7. Repository Structure
 
-```text
 Global-Trade-Data-Analysis/
-│
 ├── README.md
 ├── requirements.txt
-│
 ├── analysis.py
 ├── dashboard.py
 ├── trade_data.csv
 ├── trade_dashboard.png
-│
 ├── generate_import_data.py
 ├── import_entries.csv
 ├── tariff_rules.csv
 ├── tariff_analysis.py
-│
-└── outputs/
-    ├── tariff_scenario_matches.csv
-    ├── tariff_program_summary.csv
-    ├── tariff_country_exposure.csv
-    ├── tariff_category_exposure.csv
-    └── tariff_intelligence_dashboard.png
-```
+├── tariff_intelligence_dashboard.png
+├── tariff_scenario_matches.csv
+├── tariff_program_summary.csv
+├── tariff_country_exposure.csv
+└── tariff_category_exposure.csv
 
 ## 8. How to Run the Project
 
