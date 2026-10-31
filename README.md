@@ -63,6 +63,11 @@ These classifications represent **financial review priorities**, not confirmed c
 
 **Support strategic sourcing decisions.** Use illustrative landed-cost comparisons to explore sourcing alternatives while accounting for supplier pricing, freight, origin qualification, and actual tariff treatment.
 
+### Fictional Importer Scenario
+
+The 2025–2026 tariff and compliance intelligence model uses **GaiAnQi Global Trading**, a fictional U.S. importer, to demonstrate how import transaction data can support tariff exposure screening, compliance review prioritization, and executive decision-making.
+
+The dataset contains 150 simulated import transactions across multiple product categories and countries of origin. All company identities, transactions, tariff assumptions, and financial scenarios are illustrative and do not represent actual customs filings or legally determined duty obligations.
 ---
 
 ## 2. Historical Global Trade Analysis | 2022–2024
