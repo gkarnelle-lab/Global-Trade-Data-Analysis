@@ -8,8 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 random.seed(42)
-
-# Fictional supplier/product examples.
+# Fictional importer used throughout the synthetic trade scenario.
+IMPORTER_NAME = "GaiAnQi Global Trading"
 # HTS codes are illustrative and require classification review.
 products = [
     ("Steel fasteners", "7318.15.0000", "Steel"),
@@ -43,8 +43,9 @@ for i in range(1, 151):
         days=random.randint(0, days)
     )
 
-    rows.append({
-        "entry_id": f"ENT-{i:04d}",
+   rows.append({
+    "entry_id": f"ENT-{i:04d}",
+    "importer_name": IMPORTER_NAME,
         "entry_date": entry_date.isoformat(),
         "country_of_origin": country,
         "origin_code": origin_code,
