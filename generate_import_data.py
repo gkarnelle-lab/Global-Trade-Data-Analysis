@@ -43,9 +43,9 @@ for i in range(1, 151):
         days=random.randint(0, days)
     )
 
-   rows.append({
-    "entry_id": f"ENT-{i:04d}",
-    "importer_name": IMPORTER_NAME,
+    rows.append({
+        "entry_id": f"ENT-{i:04d}",
+        "importer_name": IMPORTER_NAME,
         "entry_date": entry_date.isoformat(),
         "country_of_origin": country,
         "origin_code": origin_code,
